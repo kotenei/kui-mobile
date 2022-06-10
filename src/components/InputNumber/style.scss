@@ -1,0 +1,33 @@
+@include bem-block('inputnumber'){
+    display: inline-flex;
+
+    @include bem-element('input'){
+        width: $inputnumber-input-width;
+        text-align: center;
+        margin:0 1px;
+        border:$border-width-base $border-style-base $border-color-base;
+        outline: none;
+        color:$text-color;
+    }
+
+    button{
+        padding: $inputnumber-button-padding;
+    }
+
+    @include bem-element('minus'){
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    @include bem-element('plus'){
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    @include bem-modifier('disabled'){
+        input{
+            background: $disabled-bgColor;
+            color:$disabled-color;
+        }
+    }
+}

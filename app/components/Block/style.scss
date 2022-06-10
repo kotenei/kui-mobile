@@ -1,0 +1,22 @@
+.app-block {
+    &-title {
+        padding-top: 35px;
+        padding-bottom: 15px;
+        font-size: 14px;
+        color: rgba(69, 90, 100, .6);
+        font-weight: 500;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    &-body {
+        &--padding {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+    &:first-child {
+        .app-block-title {
+            padding-top: 20px;
+        }
+    }
+}

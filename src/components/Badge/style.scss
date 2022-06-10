@@ -1,0 +1,75 @@
+@include bem-block('badge') {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: $badge-margin;
+    
+    line-height: 1;
+
+    @include bem-modifier('notwrap'){
+        sup{
+            position: relative;
+            transform: none;
+            top:auto;
+            right:auto;
+        }
+    }
+
+    @include bem-element('sup') {
+        display: inline-block;
+        vertical-align: middle;
+        padding: $badge-sup-padding;
+        white-space: nowrap;
+        border-radius: $badge-sup-radius;
+        font-weight: $badge-sup-font-weight;
+        text-align: center;
+        line-height: 1;
+        color:#fff;
+    }
+
+
+    @include bem-element('text') {
+        z-index: $badge-sup-zindex;
+        position: absolute;
+        right: $badge-sup-right;
+        top: 0;
+        transform: translateY(-50%) translateX(100%);
+    }
+    @include bem-element('dot') {
+        z-index: $badge-sup-zindex;
+        position: absolute;
+        width: $badge-dot-width;
+        height: $badge-dot-height;
+        border-radius: 50%;
+        padding: 0;
+        min-width: $badge-dot-width;
+        top: $badge-dot-top;
+        right: $badge-dot-right;
+    }
+
+    @include bem-modifier('primary'){
+        sup{
+            background: $primary-color;
+        }
+    }
+    @include bem-modifier('info'){
+        sup{
+            background: $info-color;
+        }
+    }
+    @include bem-modifier('success'){
+        sup{
+            background: $success-color;
+        }
+    }
+    @include bem-modifier('warning'){
+        sup{
+            background: $warning-color;
+        }
+    }
+    @include bem-modifier('danger'){
+        sup{
+            background: $danger-color;
+        }
+    }
+}

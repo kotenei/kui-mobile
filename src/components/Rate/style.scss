@@ -1,0 +1,55 @@
+@include bem-block('rate') {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: $rate-font-size;
+    color: $rate-color;
+    display: inline-block;
+    touch-action: none;
+
+    @include bem-modifier('disabled') {
+        @include element('rate-star') {
+            cursor: $disabled-cursor;
+        }
+
+        @include element('rate-star--full') {
+            color: $disabled-color;
+        }
+
+        @include element('rate-star-half') {
+            @include element('rate-star__first') {
+                color: $disabled-color;
+            }
+        }
+    }
+}
+
+@include bem-block('rate-star') {
+    margin-right: $rate-star-margin-right;
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    @include bem-modifier('half') {
+        @include element('rate-star__first') {
+            color: $rate-start-color;
+            opacity: 1;
+        }
+    }
+
+    @include bem-modifier('full') {
+        color: $rate-start-color;
+    }
+
+    @include bem-element('first') {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        opacity: 0;
+        user-select: none;
+    }
+}

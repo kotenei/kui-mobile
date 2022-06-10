@@ -1,0 +1,53 @@
+.app-icon {
+    h3 {
+        font-size: 14px;
+        margin-bottom: 20px;
+        color: rgba(69, 90, 100, 0.6);
+        font-weight: normal;
+    }
+    .icon-list {
+        margin-bottom: 20px;
+        list-style: none;
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            width: 20%;
+            text-align: center;
+            list-style: none;
+            cursor: pointer;
+            color: #555;
+            transition: all 0.3s;
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+            // border: 1px solid #ccc;
+            .anticon {
+                font-size: 26px;
+                margin: 10px 0 10px;
+                display: inline-block;
+                font-style: normal;
+                vertical-align: baseline;
+                text-align: center;
+                fill: #555;
+            }
+
+            span {
+                display: block;
+                text-align: center;
+                font-family: Lucida Console, Consolas;
+                white-space: nowrap;
+            }
+            &.active,
+            &:hover {
+                background: #03a9f4;
+                svg{
+                    fill: white;
+                }
+            }
+
+           
+        }
+    }
+   
+}

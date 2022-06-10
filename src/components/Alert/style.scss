@@ -1,0 +1,54 @@
+@include bem-block('alert') {
+    padding: $alert-padding;
+    color: $alert-font-color;
+    position: relative;
+    border-radius: $radius-base;
+    display: table;
+    width: 100%;
+    margin-bottom: $alert-margin-bottom;
+    background: $primary-color;
+    @include bem-modifier('info') {
+        background: $info-color;
+    }
+    @include bem-modifier('success') {
+        background: $success-color;
+    }
+    @include bem-modifier('warning') {
+        background: $warning-color;
+    }
+    @include bem-modifier('danger') {
+        background: $danger-color;
+    }
+    @include bem-element('close') {
+        color: $alert-font-color;
+        position: absolute;
+        top: $alert-close-top;
+        right: $alert-close-right;
+        @include text-color($alert-font-color);
+    }
+    @include bem-element(('icon', 'content')) {
+        display: table-cell;
+    }
+    @include bem-element('icon') {
+        width: $alert-icon-width;
+        vertical-align: middle;
+        font-size: $font-size-base;
+        @include text-color($alert-font-color);
+        @include bem-modifier('lg') {
+            font-size: $alert-icon-lg-font-size;
+        }
+    }
+    @include bem-element('content') {
+        padding-left: 8px;
+    }
+    @include bem-element('description') {
+        margin-top: 4px;
+        color: rgba(255, 255, 255, .8);
+    }
+    @include bem-element('closetext') {
+        position: absolute;
+        right: $alert-close-text-right;
+        cursor: pointer;
+        top: $alert-close-text-top;
+    }
+}

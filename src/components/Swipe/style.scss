@@ -1,0 +1,62 @@
+@include bem-block('swipe') {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    @include bem-element('wrapper') {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    @include bem-element('items') {}
+
+    @include bem-element('item') {
+        width: 100%;
+        display: inline-flex;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include bem-element('dots') {
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        height: $swipe-dots-height;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include bem-element('dot') {
+        @include element-size($swipe-dot-size);
+        border-radius: 50%;
+        display: inline-block;
+        background: $swipe-dot-bgColor;
+        opacity: .5;
+        margin: $swipe-dot-margin;
+
+        @include bem-modifier('active') {
+            opacity: 1;
+        }
+    }
+
+    @include bem-modifier('vertical') {
+        @include element('swipe__dots') {
+            height: 100%;
+            width: $swipe-dots-width;
+            bottom: auto;
+            right: 0;
+            top: 0;
+            flex-direction: column;
+        }
+
+        @include element('swipe__dot') {
+            display: block;
+            margin: $swipe-dot0-v-margin;
+        }
+    }
+}

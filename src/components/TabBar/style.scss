@@ -1,0 +1,32 @@
+@include bem-block('tabbar') {
+    display: flex;
+    height: $tabbar-height;
+    background: #fff;
+
+
+}
+
+@include bem-block('tabbar-item') {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+
+    @include bem-element('icon') {
+        margin-bottom: $tabbar-icon-margin-bottom;
+        @include element('badge__text'){
+            top:4px;
+        }
+        @include element('icon') {
+
+            font-size: $font-size-heading;
+        }
+    }
+
+    @include bem-element('text') {
+       
+        font-size: $font-size-caption-sm;
+    }
+}

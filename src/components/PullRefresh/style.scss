@@ -1,0 +1,29 @@
+@include bem-block('pullrefresh') {}
+
+
+@include bem-block('pullrefresh-pulldown-wrapper') {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: -$pullrefresh-wrapper-height;
+    left: 0;
+    height: $pullrefresh-wrapper-height;
+    display: flex;
+    align-items: center;
+
+    >span {
+        flex: 1;
+    }
+}
+
+@include bem-block('pullrefresh-pullup-wrapper'){
+    height: $pullrefresh-wrapper-height;
+    display: flex;
+    align-items: center;
+    text-align:center;
+
+    >span {
+        flex: 1;
+    }
+
+}

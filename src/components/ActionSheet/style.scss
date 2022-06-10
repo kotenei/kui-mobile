@@ -1,0 +1,42 @@
+@include bem-block('actionsheet') {
+    background: $background-color-base;
+    overflow-y: auto;
+    font-size: $font-size-caption;
+    max-height: 90%;
+
+    @include bem-element('header') {
+        background: #fff;
+        line-height: $actionsheet-header-height;
+        border-bottom: $border-width-base $border-style-base $border-color-base;
+        text-align: center;
+        position: relative;
+    }
+
+    @include bem-element('item') {
+        text-align: center;
+        line-height: $actionsheet-item-height;
+        border-bottom: $border-width-base $border-style-base $border-color-base;
+        background: #fff;
+        position: relative;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        @include bem-modifier('disabled') {
+            background: $disabled-bgColor;
+            color: $disabled-color;
+        }
+    }
+
+    @include bem-element('content') {
+        background: #fff;
+    }
+
+    @include bem-element('cancel') {
+        background: $actionsheet-cancel-bgColor;
+        padding-top: $actionsheet-cancel-padding-top;
+    }
+}
+
+

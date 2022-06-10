@@ -1,0 +1,206 @@
+$transition: all .3s;
+
+@include bem-block('tabs') {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: $tabs-bgColor;
+
+    @include bem-element('content') {
+        display: flex;
+        width: 100%;
+        flex: 1;
+        flex-direction: row;
+        transition: $transition;
+    }
+
+    @include bem-element('panel') {
+        width: 100%;
+        flex-shrink: 0;
+        opacity: 0;
+        transition: $transition;
+        padding: $tabs-panel-padding;
+        height: 0;
+
+        @include bem-modifier('active') {
+            opacity: 1;
+            height: auto;
+        }
+    }
+
+    @include bem-modifier('vertical') {
+        flex-direction: row;
+
+        @include element('tabs-nav') {
+            border-right: $border-width-base $border-style-base $border-color-base;
+            border-bottom: none;
+            height: 100%;
+            width: 20%;
+        }
+
+        @include element('tabs-nav__container') {
+            height: 100%;
+        }
+
+        @include element('tabs-nav__scroller') {
+            width: auto;
+            height: 100%;
+        }
+
+        @include element('tabs-nav__list') {
+            flex-direction: column;
+        }
+
+        @include element('tabs-nav__item') {
+            display: block;
+        }
+
+        @include element('tabs-nav__ink') {
+            bottom: auto;
+            height: auto;
+            width: 2px;
+            right: $tabs-nav-ink-position-width;
+        }
+
+
+        @include element('tabs__content') {
+            flex-direction: column;
+        }
+
+        @include element('tabs__panel') {
+            display: none;
+
+            &--active {
+                display: block;
+                height: 100%;
+            }
+        }
+
+        &.#{$namespace}-tabs--card {
+
+            @include element('tabs-nav') {
+                border-right: none;
+            }
+
+            @include element('tabs-nav__item') {
+                &--active {}
+
+                &:last-child {}
+            }
+        }
+    }
+
+    @include bem-modifier('right') {
+        flex-direction: row-reverse;
+
+        @include element('tabs-nav') {
+            border-right: none;
+            border-left: $border-width-base $border-style-base $border-color-base;
+            height: 100%;
+            width: 20%;
+        }
+
+        @include element('tabs-nav__ink') {
+            right: auto;
+            left: $tabs-nav-ink-position-width;
+        }
+
+        &.#{$namespace}-tabs--card {
+
+            @include element('tabs-nav') {
+                border-left: none;
+            }
+
+            @include element('tabs-nav__item') {
+                &--active {}
+
+                &:last-child {}
+            }
+        }
+    }
+
+    @include bem-modifier('bottom') {
+        flex-direction: column-reverse;
+
+        @include element('tabs-nav') {
+            border-top: $border-width-base $border-style-base $border-color-base;
+            border-bottom: none;
+        }
+
+        @include element('tabs-nav__ink') {
+            bottom: auto;
+            top: $tabs-nav-ink-position-width;
+        }
+        
+    }
+
+    @include bem-modifier('card') {
+
+        @include element('tabs-nav'){
+            border:none;
+        }
+
+        @include element('tabs-nav__item') {
+            background: $tabs-card-item-bgColor;
+
+            &--active {
+                background: $tabs-card-item-active-color;
+                border-bottom-color: $tabs-card-item-active-color;
+            }
+        }
+    }
+}
+
+@include bem-block('tabs-nav') {
+    border-bottom: $border-width-base $border-style-base $border-color-base;
+    height: $tabs-nav-height;
+
+    @include bem-element('container') {
+        overflow: hidden;
+        position: relative;
+        white-space: nowrap;
+        height: $tabs-nav-height;
+    }
+
+    @include bem-element('scroller') {
+        overflow: hidden;
+    }
+
+    @include bem-element('list') {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: relative;
+        transition: all 0.3s ease;
+        display: flex;
+        touch-action: none;
+    }
+
+    @include bem-element('item') {
+        display: inline-block;
+        padding: $tabs-nav-item-padding;
+        height: $tabs-nav-item-height;
+        line-height: $tabs-nav-item-height;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        flex: 1;
+
+        @include bem-modifier('active') {
+            color: $primary-color;
+        }
+
+        @include bem-modifier('disabled') {
+            color: $disabled-color;
+        }
+    }
+
+    @include bem-element('ink') {
+        position: absolute;
+        bottom: $tabs-nav-ink-position-width;
+        height: $tabs-nav-ink-height;
+        background: $primary-color;
+        z-index: 2;
+        transition: $transition;
+    }
+}

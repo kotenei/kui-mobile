@@ -1,0 +1,14 @@
+@import '../src/assets/styles/index.scss';
+
+
+.storybook-readme-story {
+	display: flex;
+    flex-flow: column-reverse;
+    >div{
+        padding: 0 20px; 
+    }
+}
+
+#root{
+    // padding: 20px;
+}

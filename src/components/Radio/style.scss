@@ -1,0 +1,57 @@
+@include bem-block('radio') {
+    display: flex;
+    align-items: center;
+
+
+    @include bem-modifier('checked') {
+        @include element('radio__icon--circle') {
+            background: $primary-color;
+            color: #fff;
+            border-color: $primary-color;
+        }
+    }
+
+    @include bem-modifier('disabled') {
+        @include element('radio__icon--circle') {
+            background: none;
+            color: $disabled-color;
+            border-color: $disabled-border-color;
+        }
+
+        @include element('radio__label') {
+            color: $disabled-color;
+        }
+    }
+
+    @include bem-element('icon') {
+        font-size: $font-size-base;
+        color: $primary-color;
+        position: relative;
+
+
+        @include element-size($radio-circle-size);
+
+        @include bem-modifier('circle') {
+            border: $border-width-base $border-style-base $border-color-base;
+            border-radius: 50%;
+        }
+
+        @include element('icon') {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+        }
+    }
+
+    @include bem-element('label') {
+        margin-left: $radio-label-margin-left;
+    }
+}
+
+@include bem-block('radio-group') {
+    @include element('radio') {
+        margin-bottom: $radio-group-item-margin-bottom;
+    }
+}

@@ -1,0 +1,7 @@
+@include bem-block('searchbar'){
+    background: $searchbar-bgColor;
+    @include element('input__control'){
+        background: #fff;
+        border-radius: $radius-base;
+    }
+}

@@ -1,0 +1,51 @@
+@include bem-block('collapse') {}
+
+@include bem-block('collapse-panel') {
+    background: $collapse-bg-color;
+    @include bem-element('header') {
+        border-bottom: none;
+        cursor: pointer;
+        @include bem-modifier('disabled') {
+            @include text-color($disabled-color);
+            @include element('cell-middle__title') {
+                @include text-color($disabled-color);
+            }
+        }
+        &:after{
+            content: '';
+            display: none!important;
+        }
+    }
+    @include bem-element('body') {
+        height: 0;
+        overflow: hidden;
+        transition: height .3s ease-in-out;
+        color:$text-color;
+    }
+    @include bem-element('inner') {
+        padding: $collapse-inner-padding;
+        border-top: $border-width-base $border-style-base $border-color-base;
+    }
+    @include bem-modifier('border') {
+        border-top: $border-width-base $border-style-base $border-color-base;
+       
+
+        &:first-child {
+          
+        }
+        &:last-child {
+            border-bottom: $border-width-base $border-style-base $border-color-base;
+        }
+        &:not(:last-child)  {
+            @include element('collapse-panel__header') {
+            }
+        }
+        @include element('collapse-panel__body') {
+            &:after {
+                // content: ' ';
+                // display: block;
+                // border-bottom: $border-width-base $border-style-base $border-color-base;
+            }
+        }
+    }
+}

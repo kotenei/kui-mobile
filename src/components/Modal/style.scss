@@ -1,0 +1,78 @@
+@include bem-block('modal') {
+    position: fixed;
+    z-index: $zindex-modal;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: $modal-width;
+    border-radius: $radius-base;
+    overflow: hidden;
+    border: $border-width-base $border-style-base $border-color-base;
+    transition: all .3s ease;
+    
+
+    @include bem-element('header') {
+        font-weight: 500;
+        text-align: center;
+        padding: $modal-header-padding;
+        font-size: $font-size-caption;
+        color: $title-color;
+        border-top-left-radius: $radius-base;
+        border-top-right-radius: $radius-base;
+    }
+
+    @include bem-element('body') {
+        padding: $modal-body-padding;
+        color: $subsidiary-color;
+        text-align: center;
+        @include bem-modifier('notitle'){
+            padding: $modal-body-notitle-padding;
+        }
+    }
+
+    @include bem-element('footer') {
+
+        button {
+            flex: 1;
+            border-radius: 0;
+            border-bottom: none;
+            height: 50px;
+            font-size: $font-size-caption;
+
+            &:first-child{
+                border-left: none;
+            }
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+
+    }
+
+    @include bem-element('cancel') {}
+
+    @include bem-element('ok') {
+        color: $primary-color;
+    }
+
+    @include bem-element('btns'){
+        display: flex;
+    }
+}
+
+.modal-enter {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.7);
+}
+
+.modal-enter-active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.modal-exit-active {
+    transform: translate(-50%, -50%) scale(.9);
+    opacity: 0;
+}

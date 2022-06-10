@@ -1,0 +1,99 @@
+@include bem-block('calendar') {
+    top: 0;
+    background: $calendar-bgColor !important;
+
+    @include bem-element('top') {}
+
+    @include bem-element('main') {
+        height: calc(100% - #{$calendar-header-height + $calendar-week-height});
+    }
+
+    @include bem-element('header') {
+        display: flex;
+        padding: $calendar-header-padding;
+        height: $calendar-header-height;
+        font-size: $font-size-base;
+        align-items: center;
+        background: #fff;
+    }
+
+    @include bem-element('cancel') {
+        color: $primary-color;
+    }
+
+    @include bem-element('title') {
+        flex: 1;
+        text-align: center;
+    }
+
+    @include bem-element('ok') {
+        color: $primary-color;
+    }
+
+    @include bem-element('week') {
+        display: flex;
+        height: $calendar-week-height;
+        background: #fff;
+
+        span {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:first-child,
+            &:last-child {
+                color: $subsidiary-color;
+            }
+        }
+    }
+
+    @include bem-element('wrapper') {
+        // padding-bottom: 10px;
+    }
+}
+
+@include bem-block('calendar-month') {
+    background: #fff;
+
+    @include bem-element('title') {
+        text-align: center;
+        background: $calendar-bgColor;
+        height: $calendar-month-title-height;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    @include bem-element('rows') {
+        display: flex;
+    }
+
+    @include bem-element('day') {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $calendar-month-day-height;
+        flex-direction: column;
+
+        @include bem-modifier('selected'){
+            background: $primary-color;
+            color:#fff;
+        }
+
+        @include bem-modifier('choose'){
+            background:$calendar-month-day-choose-bgColor;
+            color:#fff;
+        }
+
+        @include bem-modifier('disabled'){
+            color:$disabled-color;
+        }
+    }
+
+    @include bem-element('text'){
+        margin-top: 8px;
+    }
+}

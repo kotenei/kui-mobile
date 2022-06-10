@@ -1,0 +1,32 @@
+@include bem-block('message') {
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    line-height: $line-height;
+    text-align: center;
+    z-index: $zindex-message;
+    padding:$message-padding;
+    top:0;
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            background: $value;
+            color: #fff;
+        }
+    }
+}
+
+.message-enter,
+.message-exit-active {
+    top: -$message-height;
+}
+
+.message-enter-active {
+    top: 0;
+}
+
+.message-enter-active,
+.message-exit-active {
+    transition: top .3s ease;;
+}

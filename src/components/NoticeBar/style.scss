@@ -1,0 +1,50 @@
+@include bem-block('noticebar') {
+    height: $noticebar-height;
+    display: flex;
+    background: $noticebar-bgColor;
+    color: $noticebar-color;
+    line-height: $noticebar-height;
+    overflow: hidden;
+
+    @include bem-element('icon') {
+        padding-left: $noticebar-left-padding-left;
+        display: flex;
+        align-items: center;
+    }
+
+    @include bem-element('wrap') {
+        overflow: hidden;
+        position: relative;
+        white-space: nowrap;
+        flex: 1;
+        margin: 0 5px;
+
+    }
+
+    @include bem-element('content') {
+        display: inline-block;
+        position: relative;
+
+
+        @include bem-modifier('play') {
+            animation: marquee linear both;
+        }
+
+        @include bem-modifier('loop') {
+            animation: marquee linear infinite both;
+        }
+
+    }
+
+    @include bem-element('operation') {
+        display: flex;
+        align-items: center;
+        padding-right: $noticebar-right-padding-right;
+    }
+}
+
+@keyframes marquee {
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}

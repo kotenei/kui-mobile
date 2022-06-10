@@ -1,0 +1,5 @@
+@mixin element($element) {
+    .#{$namespace + '-' + $element} {
+        @content;
+    }
+}

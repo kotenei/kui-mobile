@@ -1,0 +1,16 @@
+@mixin text-color($color) {
+    color: $color;
+    // svg {
+    //     fill: $color;
+    // }
+
+    .#{$namespace}-icon {
+        color: $color;
+    }
+}
+
+@mixin text-truncate() {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

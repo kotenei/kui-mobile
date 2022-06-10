@@ -1,0 +1,42 @@
+@include bem-block('navbar') {
+    display: flex;
+    height: $navbar-height;
+    position: relative;
+
+    @include bem-element('left') {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding-left: $navbar-left-padding-left;
+    }
+
+    @include bem-element('middle') {
+        flex: 2;
+        font-size: $font-size-caption;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include bem-element('right') {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding-right: $navbar-right-padding-right;
+        justify-content: flex-end;
+    }
+
+    @include bem-modifier('light') {
+        background: #fff;
+        // color: $primary-color;
+
+        @include element('navbar__middle') {
+            color: $title-color;
+        }
+    }
+
+    @include bem-modifier('dark') {
+        background: $primary-color;
+        color: #fff;
+    }
+}

@@ -1,0 +1,76 @@
+@include bem-block('drawer') {
+    position: fixed;
+    z-index: $zindex-drawer;
+    transition: all .3s ease;
+    background: #fff;
+
+    @include bem-modifier('left') {
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 80%;
+        height: 100%;
+
+        &-enter{
+            transform: translateX(-100%);
+        }
+        &-enter-active{
+            transform: translateX(0%);
+        }
+        &-exit-active{
+            transform: translateX(-100%);
+        }
+    }
+
+    @include bem-modifier('right') {
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 80%;
+        height: 100%;
+
+        &-enter{
+            transform: translateX(100%);
+        }
+        &-enter-active{
+            transform: translateX(0%);
+        }
+        &-exit-active{
+            transform: translateX(100%);
+        }
+    }
+
+    @include bem-modifier('bottom'){
+        bottom:0;
+        left:0;
+        right:0;
+        width: 100%;
+
+        &-enter{
+            transform: translateY(100%);
+        }
+        &-enter-active{
+            transform: translateY(0%);
+        }
+        &-exit-active{
+            transform: translateY(100%);
+        }
+    }
+
+    @include bem-modifier('top'){
+        top:0;
+        left:0;
+        right:0;
+        width: 100%;
+
+        &-enter{
+            transform: translateY(-100%);
+        }
+        &-enter-active{
+            transform: translateY(0%);
+        }
+        &-exit-active{
+            transform: translateY(-100%);
+        }
+    }
+}

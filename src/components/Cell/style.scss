@@ -1,0 +1,109 @@
+$prefix: 'cell';
+$prefix-left: #{$prefix}-left;
+$prefix-middle: #{$prefix}-middle;
+$prefix-right: #{$prefix}-right;
+$group:#{$prefix}-group;
+
+@include bem-block($prefix) {
+    overflow: hidden;
+    background: $cell-bg-color;
+    height: $cell-height;
+    position: relative;
+    display: flex;
+    align-items:center;
+    padding:$cell-padding;
+
+    @include bem-modifier('border') {
+        &:not(:last-child) {
+            &::after {
+                content: ' ';
+                display: block;
+                height: 1px;
+                background: $border-color-base;
+                position: absolute;
+                bottom: 0px;
+                left: $cell-border-left;
+                right: 0;
+            }
+        }
+    }
+
+    @include bem-modifier('disabled') {
+        @include text-color($disabled-color);
+
+        @include element('cell-middle__title') {
+            @include text-color($disabled-color);
+        }
+
+        @include element('cell-middle__label') {
+            @include text-color($disabled-color);
+        }
+
+        @include element('cell-middle__value') {
+            @include text-color($disabled-color);
+        }
+    }
+
+    @include bem-modifier('lg') {
+        height: $cell-height-lg;
+        font-size: $font-size-caption;
+    }
+
+    @include bem-element('link'){
+        flex:1;
+        height: 100%;
+    }
+}
+
+@include bem-block($prefix-left) {
+    // height: 100%;
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    margin-right: $cell-space;
+}
+
+@include bem-block($prefix-middle) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    // padding: $cell-middle-padding;
+    flex:1;
+
+    @include bem-element('text') {
+        flex: 1;
+    }
+
+    @include bem-element('title') {
+        color: $title-color;
+        display: flex;
+        align-items: center;
+    }
+
+    @include bem-element('label') {
+        color: $subsidiary-color;
+        font-size: $cell-label-font-size;
+        margin-top: $cell-label-margin-top;
+    }
+
+    @include bem-element('value') {
+        color: $subsidiary-color;
+        font-size: $cell-value-font-size;
+    }
+}
+
+@include bem-block($prefix-right) {
+    // height: 100%;
+    // position: absolute;
+    // right: 0;
+    // top: 0;
+    margin-left: $cell-space;
+}
+
+@include bem-block($group) {
+    @include bem-modifier('border') {
+        border-top: $border-width-base $border-style-base $border-color-base;
+        border-bottom: $border-width-base $border-style-base $border-color-base;
+    }
+}

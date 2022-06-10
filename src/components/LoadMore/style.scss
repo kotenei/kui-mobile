@@ -1,0 +1,57 @@
+@include bem-block('loadmore') {
+    text-align: center;
+    width: 65%;
+    margin: $loadmore-margin;
+    position: relative;
+
+    @include bem-element('icon') {
+        margin-right: $loadmore-icon-margin-right;
+    }
+
+    @include bem-element('tip') {
+        overflow: hidden;
+        display: inline-block;
+        position: relative;
+        padding: $loadmore-tip-padding;
+        background: $loadmore-tip-bgColor;
+        z-index: 10;
+        vertical-align: middle;
+    }
+
+    @include bem-modifier('line') {
+        &:after {
+            content: ' ';
+            height: 1px;
+            border: none;
+            // border-top: $border-width-base $border-style-base $border-color-base;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            z-index: 8;
+            background: $border-color-base;
+        }
+    }
+
+    @include bem-modifier('dot') {
+        @include element('loadmore__tip') {
+            &:after {
+                content: ' ';
+                @include element-size($loadmore-dot-size);
+                border-radius: 50%;
+                background: $border-color-base;
+                // top: 50%;
+                // left: 50%;
+                position: relative;
+                display: inline-block;
+                // transform: translate(-50%, -50%);
+                top: -$loadmore-dot-size;
+            }
+        }
+    }
+
+    @include bem-modifier('full') {
+        width: 100%;
+    }
+}

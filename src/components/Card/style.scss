@@ -1,0 +1,48 @@
+@include bem-block('card') {
+    border: $border-width-base $border-style-base $border-color-base;
+    border-radius: $radius-base;
+    background: #fff;
+    padding-bottom: $card-padding-bottom;
+
+    @include bem-modifier('full') {
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+    }
+}
+
+@include bem-block('card-header') {
+    padding: $card-header-padding;
+    border-bottom: $border-width-base $border-style-base $border-color-base;
+    display: flex;
+    justify-items: center;
+    font-size: $font-size-heading;
+
+    @include bem-element('title') {
+        flex: 1;
+        text-align: left;
+        color: $title-color;
+    }
+
+    @include bem-element('extra') {
+        color: $subsidiary-color;
+    }
+}
+
+@include bem-block('card-body') {
+    padding: $card-body-padding;
+
+}
+
+@include bem-block('card-footer') {
+    display: flex;
+    justify-items: center;
+    color: $subsidiary-color;
+    padding: $card-footer-padding;
+
+    @include bem-element('content') {
+        flex: 1;
+    }
+
+    @include bem-element('extra') {}
+}

@@ -1,0 +1,39 @@
+@include bem-block('animation-router') {
+    &-forward-enter {
+        transform: translate(100%);
+    }
+    &-forward-enter-active {
+        transform: translate(0);
+    }
+    &-forward-exit {
+        transform: translate(0);
+    }
+    &-forward-exit-active {
+        transform: translate(-100%);
+    }
+    &-backward-enter {
+        transform: translate(-100%);
+    }
+    &-backward-enter-active {
+        transform: translate(0);
+    }
+    &-backward-exit {
+        transform: translate(0);
+    }
+    &-backward-exit-active {
+        transform: translate(100%);
+    }
+    &-forward-enter-active,
+    &-forward-exit-active,
+    &-backward-enter-active,
+    &-backward-exit-active {
+        transition: transform 0.3s linear;
+    }
+    &-forward-exit,
+    &-backward-exit {
+        position: absolute !important;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+}

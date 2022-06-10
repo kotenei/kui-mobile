@@ -1,0 +1,29 @@
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FAFAFA;
+    &-header,
+    &-footer {
+        background: #fff;
+        &--fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+    }
+    &-body {
+        &--spacing {
+            padding: 15px;
+        }
+        height: 100%;
+    }
+    &-footer {
+        &--fixed {
+            top: auto;
+            bottom: 0;
+        }
+    }
+}

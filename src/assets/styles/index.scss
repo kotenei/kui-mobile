@@ -1,0 +1,11 @@
+@import "./themes/default";
+@import "./mixins";
+@import "./variables";
+@import "./reboot";
+@import "../../index";
+
+body {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    color: $text-color;
+}

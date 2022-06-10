@@ -1,0 +1,40 @@
+@include bem-block('swipecell') {
+    position: relative;
+    transition: all .3s ease;
+    touch-action: none;
+
+    &__left,
+    &__right {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        display: flex;
+        overflow: hidden;
+        flex-wrap: nowrap;
+        transform: translate(-100%, 0);
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__right {
+        right: 0;
+        transform: translate(100%, 0);
+    }
+}
+
+@include bem-block('swipecell-button') {
+    background: $swipecell-btn-bgColor;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: $swipecell-btn-padding;
+    color: $swipecell-btn-color;
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            background: $value;
+        }
+    }
+}

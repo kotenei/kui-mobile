@@ -1,0 +1,80 @@
+@include bem-block('switch') {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    min-width: $switch-min-width;
+    height: $switch-height;
+    line-height: $switch-line-height;
+    border-radius: $switch-border-radius;
+    border: $border-width-base $border-style-base transparent;
+    background: $switch-bgColor;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    @include bem-modifier('checked') {
+        background: $primary-color;
+
+        @include element('switch__inner') {
+            margin-left: $switch-checked-inner-margin-left;
+            margin-right: $switch-checked-inner-margin-right;
+
+            @include element('switch__dot') {
+                left: 100%;
+                margin-left: $switch-checked-dot-margin-left;
+            }
+        }
+
+        &:before {
+            left: 100%;
+            margin-left: $switch-checked-before-margin-left;
+        }
+    }
+
+    @include bem-modifier('disabled') {
+        cursor: $disabled-cursor;
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    @include bem-modifier('loading') {
+        cursor: $disabled-cursor;
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    @include bem-element('inner') {
+        color: $switch-inner-color;
+        // font-size: $font-size-caption-sm;
+        display: block;
+        margin-left: $switch-inner-margin-left;
+        margin-right: $switch-inner-margin-right;
+        text-align: center;
+
+        @include element('icon') {
+            margin: 0;
+        }
+    }
+
+    @include bem-element('dot') {
+        position: absolute;
+        width: $switch-dot-width;
+        height: $switch-dot-height;
+        border-radius: 50%;
+        left: $switch-dot-left;
+        top: $switch-dot-top;
+        background: $switch-dot-bgColor;
+        transition: all 0.3s ease;
+
+
+        @include element('icon') {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0;
+            margin-left: $switch-icon-margin-left;
+            margin-top: $switch-icon-margin-top;
+            color: $primary-color;
+            font-size:$switch-icon-font-size;
+        }
+    }
+}

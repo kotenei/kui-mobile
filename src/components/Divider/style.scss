@@ -1,0 +1,14 @@
+@include bem-block('divider') {
+    height: 1px;
+    margin: 0;
+    border: none;
+    flex-shrink: 0;
+    background-color: $border-color-base;
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            background: $value;
+        }
+    }
+}

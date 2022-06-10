@@ -1,0 +1,29 @@
+@include bem-block('tag') {
+  display: inline-block;
+  padding: $tag-padding;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: $radius-base;
+  cursor: pointer;
+  margin: $tag-margin;
+  background: $tag-bgColor;
+  border: $border-width-base $border-style-base $tag-border-color;
+  @include text-color($tag-color);
+
+  @each $color, $value in $colors {
+    @include bem-modifier($color) {
+      background: $value;
+      border-color: $value;
+      @include text-color(#fff);
+      &.#{$namespace}-tag--line {
+        @include text-color($value);
+      }
+    }
+  }
+
+  @include bem-modifier('line') {
+    background: transparent;
+  }
+}

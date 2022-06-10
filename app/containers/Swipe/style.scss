@@ -1,0 +1,14 @@
+.app-swipe {
+    .k-swipe__item {
+        text-align: center;
+        color: #fff;
+        font-size: 20px;
+
+        &:nth-child(odd) {
+            background: #66c6f2;
+        }
+        &:nth-child(even) {
+            background: #39a9ed;
+        }
+    }
+}

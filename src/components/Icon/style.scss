@@ -1,0 +1,38 @@
+@include bem-block('icon') {
+    font-size: inherit;
+    margin: 0 $icon-margin-x;
+    text-align: center;
+    display: inline-block;
+    font-style: normal;
+    vertical-align: $icon-vertical-align;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    line-height: 0;
+
+    @include bem-modifier('spin') {
+        animation: loadingCircle 1s infinite linear;
+    }
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            @include text-color($value);
+        }
+    }
+
+}
+
+@include bem-block("icon-svg") {
+    width: $icon-svg-width;
+    height: $icon-svg-height;
+    display: inline-block;
+    fill: currentColor;
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            fill: $value;
+        }
+    }
+}

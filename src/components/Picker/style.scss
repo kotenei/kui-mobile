@@ -1,0 +1,87 @@
+@include bem-block('picker') {
+    display: flex;
+    flex-direction: column;
+
+    @include bem-element('header') {
+        display: flex;
+        padding: $picker-header-padding;
+        height: $picker-header-height;
+        border-bottom: $border-width-base $border-style-base $border-color-base;
+        font-size: $font-size-base;
+        align-items: center;
+    }
+
+    @include bem-element('cancel') {
+        color: $primary-color;
+    }
+
+    @include bem-element('title') {
+        flex: 1;
+        text-align: center;
+    }
+
+    @include bem-element('ok') {
+        color: $primary-color;
+    }
+
+    @include bem-element('wrapper') {
+        display: flex;
+        flex: 1;
+        height: $picker-wrapper-height;
+        position: relative;
+
+        &::before,
+        &::after {
+            content: ' ';
+            position: absolute;
+            transform: translateZ(0);
+            width: 100%;
+            height: $picker-select-option-height*2;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.4);
+            z-index: 10;
+        }
+
+        &::before {
+            top: 0;
+            border-bottom: $border-width-base $border-style-base $border-color-base;
+        }
+
+        &::after {
+            bottom: 0;
+            border-top: $border-width-base $border-style-base $border-color-base;
+        }
+
+    }
+
+
+}
+
+@include bem-block('picker-select') {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin-top: $picker-select-option-height*2;
+
+    @include bem-element('wheel') {
+        flex: 1;
+    }
+
+    @include bem-element('option') {
+        height: $picker-select-option-height;
+        line-height: $picker-select-option-height;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        // color: $subsidiary-color;
+
+        @include bem-modifier('disabled') {
+            color: $disabled-color;
+        }
+
+        @include bem-modifier('selected') {
+            // color: $title-color;
+        }
+    }
+}

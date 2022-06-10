@@ -1,0 +1,52 @@
+@include bem-block('checkbox') {
+    display: flex;
+    align-items: center;
+
+    @include bem-modifier('checked') {
+        @include element('checkbox__icon') {
+            background: $primary-color;
+            color: #fff;
+            border-color: $primary-color;
+        }
+    }
+
+    @include bem-modifier('disabled') {
+        @include element('checkbox__icon') {
+            background: none;
+            color: $disabled-color;
+            border-color: $disabled-border-color;
+        }
+
+        @include element('checkbox__label') {
+            color: $disabled-color;
+        }
+    }
+
+    @include bem-element('icon') {
+        font-size: $font-size-base;
+        color: $primary-color;
+        position: relative;
+        border: $border-width-base $border-style-base $border-color-base;
+        border-radius: 50%;
+
+        @include element-size($checkbox-icon-size);
+
+        @include element('icon') {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+        }
+    }
+
+    @include bem-element('label') {
+        margin-left: $checkbox-label-margin-left;
+    }
+}
+
+@include bem-block('checkbox-group') {
+    @include element('checkbox') {
+        margin-bottom: $checkbox-group-item-margin-bottom;
+    }
+}

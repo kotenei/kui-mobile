@@ -1,0 +1,75 @@
+@include bem-block('input') {
+    line-height: $input-line-height;
+    height: auto;
+
+    @include element('cell-middle') {
+        align-items: initial;
+        padding: $input-padding;
+    }
+
+    @include element('cell-middle__text') {
+        max-width: $input-label-max-width;
+    }
+
+    @include element('cell-middle__value') {
+        flex: 1;
+        display: flex;
+        font-size: $font-size-base;
+
+        textarea {
+            resize: none;
+            word-break: break-word;
+            word-wrap: break-word;
+            // height: $input-textarea-height;
+        }
+    }
+
+    @include bem-element('wrap') {
+        position: relative;
+        flex: 1;
+    }
+
+    @include bem-element('control') {
+        display: block;
+        border: none;
+        outline: none;
+        margin: 0;
+        font-size: $font-size-base;
+        width: 100%;
+        background: none;
+
+        &:not(:first-child) {
+            padding-left: $input-control-padding-left;
+        }
+
+        &:not(:last-child) {
+            padding-right: $input-control-padding-right;
+        }
+    }
+
+    @include bem-element('prefix') {
+        position: absolute;
+        top: 50%;
+        line-height: 0;
+        z-index: 2;
+        transform: translateY(-50%);
+        left:4px;
+    }
+
+    @include bem-element('suffix') {
+        position: absolute;
+        top: 50%;
+        line-height: 0;
+        z-index: 2;
+        transform: translateY(-50%);
+        right: 4px;
+    }
+
+    @include bem-element('extra') {
+        padding:$input-extra-padding;
+    }
+
+
+}
+
+@include bem-block('input-group') {}

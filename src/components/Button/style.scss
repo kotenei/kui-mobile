@@ -1,0 +1,89 @@
+@include bem-block('button') {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: medium none;
+    position: relative;
+    outline: none;
+    border: $border-width-base $border-style-base $border-color-base;
+    padding: $button-padding-y $button-padding-x;
+    font-size: $font-size-base;
+    border-radius: $button-border-radius;
+    background: $button-bgColor;
+    color: $button-color;
+    line-height: $line-height;
+
+    @each $color,
+    $value in $colors {
+        @include bem-modifier($color) {
+            background: $value;
+            color: #fff;
+            border-color: $value;
+        }
+    }
+
+    @each $size,
+    $value in $button-size-map {
+        @include bem-modifier($size) {
+            padding: map-get($value, 'padding');
+            font-size: map-get($value, 'fontSize');
+        }
+    }
+
+    @include bem-modifier('disabled') {
+        color: $disabled-color;
+        background: $disabled-bgColor;
+        border-color: $disabled-border-color;
+    }
+
+    @include bem-modifier('active') {
+        background: $button-active-bgColor;
+        border-color: darken($border-color-base, 5);
+
+        @each $color,
+        $value in $colors {
+            &.#{$namespace}-button--#{$color} {
+                background: darken($value, 5%);
+            }
+        }
+    }
+
+    @include bem-modifier('full') {
+        width: 100%;
+        display: block;
+    }
+}
+
+@include bem-block('button-group') {
+    display: inline-block;
+    position: relative;
+
+    @include element('button') {
+        &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+
+        &:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:not(:first-child) {
+            margin-left: -1px;
+        }
+
+        @each $color,
+        $value in $colors {
+            &--#{$color} {
+                border-left-color: darken($value, 5%);
+            }
+        }
+    }
+}
